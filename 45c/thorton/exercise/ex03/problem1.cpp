@@ -1,4 +1,9 @@
 #include <iostream>
+
+//Didn't realize until now.
+//We don't need the exta arg, of arrLen.
+//We can just save the mem location of first and last.
+//And use those locations as our bounds.
 void reverse(int* first, int* last, int arrLen){
 	// Be carful when asn pointers to pointers.
 	// Will re-asn mem address

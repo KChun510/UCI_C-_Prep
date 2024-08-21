@@ -17,6 +17,27 @@ void reverse(int* first, int* last, int arrLen){
 	}
 
 }
+// Approach2, feels like the proper way to do this.
+// Also allows eval of dynamic arrays.
+// Time Complex is O(n + n/2) -> O(n)
+void reverseApproach2(int* first, int* last){
+	int arrLen = 1;
+	int* tempPointer = first;
+	int temp;
+	while(tempPointer != last){
+		tempPointer += 1;
+		arrLen += 1;
+	}
+	for(int i = 0; i < arrLen/2; i++){
+		temp = *first;
+		*first = *last;
+		*last = temp;		
+		first += 1;
+		last -= 1;
+	}
+
+
+}
 
 int main(){
 	const int arrLen = 10;
@@ -26,8 +47,10 @@ int main(){
 	}
 	std::cout << std::endl;
 
-	reverse(arr, (arr + (arrLen - 1)), arrLen);
+//	reverse(arr, arr + (arrLen - 1), arrLen);
+	reverseApproach2(arr, arr + (arrLen -1 ));
 
+	std::cout << std::endl;
 	for(int i: arr){
 		std::cout << i << " ";
 	}

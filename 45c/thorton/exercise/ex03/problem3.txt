@@ -29,9 +29,10 @@ Finally, list the total size of the Whatever struct in this case.
 Total 24 bytes
 
 If we've configured the compiler for memory usage, for each member, specify its offset (i.e., where in the structure it would begin). If padding was necessary before it, briefly explain why.
-a, 
-b,
-c,
-d, 
+a, This goes last -> [14]
+b, This will go second: [0] ...-> [7] -> [8] -> [9] -> [10] -> [11] 
+c, This goes third: [12] -> [13]
+d, This will go first: [0] ...-> [7]
 
 Finally, list the total size of the whatever struct in this case.
+Total size of bytes used is 14.

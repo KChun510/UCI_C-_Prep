@@ -1,0 +1,13 @@
+This is a question problem no coding.
+
+
+When designing a struct in C++, one thing worth thinking about is the order in which the members should be listed, which isn't necessarily an arbitrary decision, but one that has a substantive effect on program design.
+
+List and briefly describe (in a sentence or two each) two ways that the design of a struct can be improved by adjusting the order in which the members are listed in its declaration.
+
+
+
+
+My Answer: We should structure them in a way that is top down like. Yes structs are there own dataTypes, however they do have Objet like behavior when accessing vars. So because of this want to structure this, in i.e: day, month, year (Logical access).
+
+Also there is the topic of mem usage. In a struct were reserving mememory. Depending on the type, this should also be topdown like. Because of byte alighnment.

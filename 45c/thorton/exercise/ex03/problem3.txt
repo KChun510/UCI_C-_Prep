@@ -1,0 +1,37 @@
+Suppose that we're writing a C++ program and our compiler uses the following rules to decide how to lay out structures.
+
+The sizes of the built-in types are as follows: a char is one byte, a short is two bytes, an int is four bytes, and a double is eight bytes.
+The underlying architecture provides the ability to fetch memory in only these ways, each of which take the same amount of time:
+One byte, given any address.
+Two bytes, given any adress that is aligned on a two-byte boundary. (In other words, we can read two bytes from the address 14 or 16, but not 15; only address divisible by two are allowed if we're reading two bytes.)
+Four bytes, given any address that is aligned on a four-byte boundary
+Our compiler has a setting that allows us to decide which of the following characteristics we want:
+Optimize for speed (i.e., be able to read the members of a struct as fast as possible, even if extra memory is used).
+Optimize for memory usage (i.e., store a struct in as little memory as possible, even if member access becomes slower).
+
+In our program, we've declared the following struct.
+
+struct Whatever
+{
+    short a;
+    int b;
+    char c;
+    double d;
+};
+If we've configured the compiler to optimize for speed, for each member, specify its offset (i.e., where in the structure it would begin). If padding was necessary before it, briefly explain why.
+
+Answer: Would be to store this mem in line, and don't care about mem usage using alot of padding.
+a, stored with padding of one byte. [0] > [1]
+b, two byte of padding. [0] > [1] > 2 > 3 > [4] > [5] > [6] > [7]
+c, no padding.    [0] > [1] > 2 > 3 > [4] > [5] > [6] > [7] > [8]
+d, two bytes of padding.  [0] > [1] > 2 > 3 > [4] > [5] > [6] > [7] > [8] > 9 > 10 > 11 > 12 > 13 > 14 > 15 > [16] ... [24]
+Finally, list the total size of the Whatever struct in this case.
+Total 24 bytes
+
+If we've configured the compiler for memory usage, for each member, specify its offset (i.e., where in the structure it would begin). If padding was necessary before it, briefly explain why.
+a, 
+b,
+c,
+d, 
+
+Finally, list the total size of the whatever struct in this case.

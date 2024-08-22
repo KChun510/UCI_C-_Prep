@@ -27,6 +27,7 @@ void reverseApproach2(int* first, int* last){
 	while(tempPointer != last){
 		tempPointer += 1;
 		arrLen += 1;
+		
 	}
 	for(int i = 0; i < arrLen/2; i++){
 		temp = *first;

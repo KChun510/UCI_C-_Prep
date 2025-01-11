@@ -57,7 +57,6 @@ public:
 			i2++;
 		}
 		tempArr[i] = '\0';
-
 		delete[] string;
 		string = tempArr;
 		str_size = i;
